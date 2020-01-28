@@ -1,3 +1,4 @@
+import 'package:fitness/ui/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(FitnessApp());
@@ -9,13 +10,9 @@ class FitnessApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Fitness App',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blueGrey,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Fitness App'),
-        ),
-      ),
+      home: Splash(),
     );
   }
 }
