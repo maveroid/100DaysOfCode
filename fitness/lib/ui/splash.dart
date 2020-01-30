@@ -1,11 +1,18 @@
+import 'dart:async';
+
 import 'package:fitness/util/util.dart';
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
+
+import 'login.dart';
 
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     customizeOverlay();
+
+    Timer(Duration(milliseconds: 1500),
+        () => Navigator.of(context).pushNamed(Login.route));
 
     return Scaffold(
       extendBody: true,
@@ -32,7 +39,7 @@ class Splash extends StatelessWidget {
                   child: Text('FITNESS APP',
                       style: Theme.of(context)
                           .textTheme
-                          .display1
+                          .headline4
                           .merge(TextStyle(color: Colors.white))),
                 ),
               ),
@@ -43,23 +50,6 @@ class Splash extends StatelessWidget {
                 size: 48,
               ),
               SizedBox(height: 150),
-              AnimatedOpacity(
-                duration: Duration(milliseconds: 1500),
-                opacity: 1,
-                child: InkWell(
-                  child: Container(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Enter',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline
-                              .merge(TextStyle(color: Colors.blueGrey))),
-                    ),
-                  ),
-                ),
-              )
             ],
           )
         ],

@@ -1,3 +1,4 @@
+import 'package:fitness/ui/login.dart';
 import 'package:fitness/ui/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,9 @@ class FitnessApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
+      routes: {
+        Login.route: (context) => Login(),
+      },
       home: Splash(),
     );
   }
