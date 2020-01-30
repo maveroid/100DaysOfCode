@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 
-class Login extends StatefulWidget {
-  static String route = '/login';
+import 'profile.dart';
+
+class Register extends StatefulWidget {
+  static String route = '/register';
 
   @override
-  _LoginState createState() => _LoginState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -55,6 +57,36 @@ class _LoginState extends State<Login> {
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
+                          hintText: 'Input your name',
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              .merge(TextStyle(color: Colors.white)),
+                          labelText: 'Name',
+                          labelStyle: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              .merge(TextStyle(color: Colors.white)),
+                          prefixIcon: Icon(
+                            LineAwesomeIcons.male,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      TextFormField(
+                        cursorColor: Colors.white,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                        decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
                           hintText: 'Input email address',
                           hintStyle: Theme.of(context)
                               .textTheme
@@ -66,7 +98,7 @@ class _LoginState extends State<Login> {
                               .subtitle1
                               .merge(TextStyle(color: Colors.white)),
                           prefixIcon: Icon(
-                            LineAwesomeIcons.male,
+                            LineAwesomeIcons.at,
                             color: Colors.white,
                           ),
                         ),
@@ -101,6 +133,36 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 20),
+                      TextFormField(
+                        cursorColor: Colors.white,
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            .merge(TextStyle(color: Colors.white)),
+                        decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white),
+                          ),
+                          hintText: 'Enter previous password',
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              .merge(TextStyle(color: Colors.white)),
+                          labelText: 'Confirm Password',
+                          labelStyle: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              .merge(TextStyle(color: Colors.white)),
+                          prefixIcon: Icon(
+                            LineAwesomeIcons.lock,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -108,12 +170,13 @@ class _LoginState extends State<Login> {
               SizedBox(height: 30),
               OutlineButton(
                 borderSide: BorderSide(color: Colors.white),
-                child: Text('LOGIN',
+                child: Text('REGISTER',
                     style: Theme.of(context)
                         .textTheme
                         .subtitle1
                         .merge(TextStyle(color: Colors.white))),
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
+                    CreateProfile.route, ModalRoute.withName('/')),
               ),
             ],
           ),
